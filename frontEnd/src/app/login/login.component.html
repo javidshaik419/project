@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <form class="form-group" #form="ngForm">
+            <label [class.err]="email.invalid && email.touched ">Email:</label><br>
+            <input type="email" class="form-control" placeholder="EX:abc@gmail.com" [(ngModel)]=log.email name="email"
+                required pattern="[a-zA-Z0-9_\.\+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-\.]+" #email="ngModel">
+                <span class="err" *ngIf="email.invalid && email.touched" >please enter valid Email</span><br>
+
+            <label [class.err]="password.invalid && password.touched ">password:</label><br>
+            <input type="password" class="form-control" placeholder="enter Password" [(ngModel)]=log.password
+                name="password" required #password="ngModel">
+                <span class="err" *ngIf="password.invalid && password.touched" >enter password</span><br>
+
+        </form>
+        <button (click)="onsubmit()" class="btn btn-primary" [disabled]="form.invalid"> submit</button><br>
+        <span style="color: red;">{{msg}}</span>
+        <p>if ur new click hear to <a href="register"> register</a></p>
+
+    </div>
+</div>

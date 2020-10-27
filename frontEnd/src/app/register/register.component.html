@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <form class="form-group" #form="ngForm">
+            <label [class.err]="user.invalid && user.touched ">Name:</label><br>
+            <input type="text" class="form-control" placeholder="enter Name" [(ngModel)]=details.name name="sf" required
+                pattern="[a-zA-Z]+" #user="ngModel">
+            <span class="err" *ngIf="user.invalid && user.touched">please fill the above input</span><br>
+
+
+            <label [class.err]="email.invalid && email.touched ">Email:</label><br>
+            <input type="email" class="form-control" placeholder="EX:abc@gmail.com" [(ngModel)]=details.email name="se"
+                required pattern="[a-zA-Z0-9_\.\+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-\.]+" #email="ngModel">
+            <span class="err" *ngIf="email.invalid && email.touched">please enter valid Email</span><br>
+
+            <label [class.err]="password.invalid && password.touched ">Password:</label><br>
+            <input type="password" class="form-control" placeholder="enter password" [(ngModel)]=details.password
+                name="sp" required pattern="[a-zA-Z0-9]{6,8}" #password="ngModel">
+            <span class="err" *ngIf="password.invalid && password.touched">Min:6 charecters and max 8 charecters</span><br>
+
+            <label [class.err]="mobile.invalid && mobile.touched ">Mobile:</label><br>
+            <input type="numbers" class="form-control" placeholder="enter mobile" [(ngModel)]=details.mobile name="sm"
+                required pattern="[789][0-9]{9}" #mobile="ngModel">
+            <span class="err" *ngIf="mobile.invalid && mobile.touched">Enter correct mobile number</span><br>
+
+            <label [class.err]="role.invalid && role.touched "> Role :</label><br>
+            <select [(ngModel)]=details.role name="sss" class="btn btn-primary" required #role="ngModel">
+                <option value="">select role</option>
+                <option *ngFor="let ci of roles" value="{{ci}}">{{ci}}</option>
+                <span class="err" *ngIf="role.invalid && role.touched">please select role</span><br>
+
+            </select>
+        </form>
+        <button (click)="submit()" class="btn btn-secondary" [disabled]="form.invalid">submit</button>
+        <span>{{msg}}</span>
+        <p>click hear to <a href="login">login</a></p>
+    </div>
+</div>

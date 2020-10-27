@@ -1,0 +1,30 @@
+<div>
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#S.NO</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Role</th>
+            <th scope="col">LoginTime</th>
+            <th scope="col">LogoutTime</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ci of details;let i=index" >
+            <td>{{i+1}}</td>
+            <td>{{ci.name}}</td>
+            <td>{{ci.email}}</td>
+            <td>{{ci.mobile}}</td>
+            <td>{{ci.role}}</td>
+            <td>{{ci.loginTime}}</td>
+            <td>{{ci.logoutTime}}</td>
+
+          </tr>
+       
+        </tbody>
+      </table>
+    <button (click)="goBack()" class="btn btn-primary">back</button>
+</div>
